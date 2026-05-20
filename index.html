@@ -7,273 +7,14 @@
       content="width=device-width, initial-scale=1.0"
     />
     <title>VELOCE Motors - Luxury Supercars (SPA)</title>
-
-    <style>
-      /* Reset & Base */
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-      body {
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        background: #0a0a0a;
-        color: #fff;
-        line-height: 1.6;
-        overflow-x: hidden;
-      }
-
-      /* Navigation */
-      nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 20px 50px;
-        background: rgba(10, 10, 10, 0.95);
-        position: fixed;
-        width: 100%;
-        top: 0;
-        z-index: 1000;
-        border-bottom: 1px solid #333;
-        backdrop-filter: blur(10px);
-      }
-      nav .logo {
-        font-size: 24px;
-        font-weight: bold;
-        letter-spacing: 2px;
-        color: #fff;
-        text-decoration: none;
-      }
-      nav .logo span {
-        color: #d4af37;
-        font-style: italic;
-      }
-      nav ul {
-        list-style: none;
-        display: flex;
-        gap: 30px;
-        align-items: center;
-      }
-      nav ul li a {
-        color: #ccc;
-        text-decoration: none;
-        transition: 0.3s;
-        text-transform: uppercase;
-        font-size: 13px;
-        letter-spacing: 1px;
-        font-weight: 600;
-      }
-      nav ul li a:hover,
-      nav ul li a.active {
-        color: #d4af37;
-      }
-
-      /* Mobile Menu (Cơ bản) */
-      @media (max-width: 768px) {
-        nav {
-          flex-direction: column;
-          padding: 15px;
-        }
-        nav ul {
-          margin-top: 15px;
-          gap: 15px;
-          flex-wrap: wrap;
-          justify-content: center;
-        }
-      }
-
-      /* SPA Views (Pages) */
-      .page {
-        display: none; /* Ẩn mặc định */
-        padding-top: 80px;
-        min-height: 100vh;
-        animation: fadeIn 0.4s ease-out forwards;
-      }
-      .page.active {
-        display: block; /* Chỉ hiện trang có class active */
-      }
-
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-          transform: translateY(15px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      /* Layout Component */
-      .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 60px 20px;
-      }
-      .section-title {
-        text-align: center;
-        margin-bottom: 50px;
-        font-size: 36px;
-        font-weight: 300;
-      }
-      .section-title span {
-        color: #d4af37;
-        font-style: italic;
-      }
-
-      /* Hero Section (Home) */
-      .hero {
-        height: 100vh;
-        /* Fallback ảnh hero, tránh lỗi */
-        background:
-          linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)),
-          url("https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1600&q=80")
-            center/cover no-repeat;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        margin-top: -80px;
-      }
-      .hero h1 {
-        font-size: clamp(40px, 5vw, 60px);
-        margin-bottom: 20px;
-        letter-spacing: 4px;
-        font-weight: 300;
-      }
-      .hero h1 span {
-        color: #d4af37;
-        font-style: italic;
-      }
-      .hero p {
-        font-size: 18px;
-        max-width: 600px;
-        margin-bottom: 40px;
-        color: #ccc;
-      }
-
-      /* Buttons */
-      .btn {
-        padding: 15px 35px;
-        background: #d4af37;
-        color: #000;
-        text-decoration: none;
-        font-weight: bold;
-        border-radius: 2px;
-        transition: 0.3s;
-        display: inline-block;
-        border: none;
-        cursor: pointer;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        font-size: 13px;
-      }
-      .btn:hover {
-        background: #fff;
-        color: #000;
-      }
-      .btn-outline {
-        background: transparent;
-        border: 1px solid #d4af37;
-        color: #d4af37;
-      }
-      .btn-outline:hover {
-        background: #d4af37;
-        color: #000;
-      }
-
-      /* Grid & Cards */
-      .grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 30px;
-      }
-      .card {
-        background: #111;
-        border: 1px solid #222;
-        border-radius: 4px;
-        overflow: hidden;
-        transition: 0.3s;
-      }
-      .card:hover {
-        transform: translateY(-5px);
-        border-color: #d4af37;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-      }
-      .card img {
-        width: 100%;
-        height: 250px;
-        object-fit: cover;
-        display: block;
-        background: #222;
-      }
-      .card-body {
-        padding: 25px;
-      }
-      .card-badge {
-        background: #d4af37;
-        color: #000;
-        padding: 3px 10px;
-        font-size: 11px;
-        font-weight: bold;
-        letter-spacing: 1px;
-        margin-bottom: 15px;
-        display: inline-block;
-      }
-      .card-title {
-        font-size: 22px;
-        margin-bottom: 10px;
-        color: #fff;
-        font-weight: 400;
-      }
-      .card-price {
-        color: #d4af37;
-        font-weight: 600;
-        margin-bottom: 20px;
-        font-size: 18px;
-      }
-
-      /* Form */
-      form {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        background: #111;
-        padding: 40px;
-        border: 1px solid #222;
-        border-radius: 4px;
-      }
-      input,
-      textarea {
-        width: 100%;
-        padding: 15px;
-        background: #0a0a0a;
-        border: 1px solid #333;
-        color: #fff;
-        font-family: inherit;
-      }
-      input:focus,
-      textarea:focus {
-        outline: none;
-        border-color: #d4af37;
-      }
-
-      /* Footer */
-      footer {
-        background: #050505;
-        text-align: center;
-        padding: 40px 20px;
-        border-top: 1px solid #222;
-        margin-top: auto;
-      }
-      footer p {
-        color: #666;
-        font-size: 14px;
-      }
-    </style>
+    <!-- Nhúng file CSS -->
+    <link
+      rel="stylesheet"
+      href="css/style.css"
+    />
   </head>
   <body>
+    <!-- Thanh điều hướng -->
     <nav>
       <a
         href="#home"
@@ -289,6 +30,7 @@
       </ul>
     </nav>
 
+    <!-- Trang Home -->
     <div
       id="home"
       class="page"
@@ -314,6 +56,7 @@
       </div>
     </div>
 
+    <!-- Trang About -->
     <div
       id="about"
       class="page"
@@ -373,6 +116,7 @@
       </div>
     </div>
 
+    <!-- Trang Fleet -->
     <div
       id="fleet"
       class="page"
@@ -386,6 +130,7 @@
       </div>
     </div>
 
+    <!-- Trang Services -->
     <div
       id="services"
       class="page"
@@ -398,7 +143,7 @@
               <h3 class="card-title">🏎️ Vehicle Acquisition</h3>
               <p style="color: #999">
                 We source the exact specification you desire from our global
-                network of partners, auction houses, and collectors.
+                network.
               </p>
             </div>
           </div>
@@ -406,8 +151,7 @@
             <div class="card-body">
               <h3 class="card-title">🔑 Private Test Drives</h3>
               <p style="color: #999">
-                Experience any vehicle from our fleet on a private circuit or
-                curated road route, with full safety support.
+                Experience any vehicle from our fleet on a private circuit.
               </p>
             </div>
           </div>
@@ -415,8 +159,8 @@
             <div class="card-body">
               <h3 class="card-title">⚙️ Concierge Maintenance</h3>
               <p style="color: #999">
-                Factory-trained technicians, genuine parts, and doorstep
-                collection keep your investment in flawless condition.
+                Factory-trained technicians keep your investment in flawless
+                condition.
               </p>
             </div>
           </div>
@@ -424,8 +168,7 @@
             <div class="card-body">
               <h3 class="card-title">💎 Bespoke Customization</h3>
               <p style="color: #999">
-                From carbon-fibre interiors to bespoke paint programmes, we
-                create vehicles as individual as their owners.
+                From carbon-fibre interiors to bespoke paint programmes.
               </p>
             </div>
           </div>
@@ -433,6 +176,7 @@
       </div>
     </div>
 
+    <!-- Trang Contact -->
     <div
       id="contact"
       class="page"
@@ -461,15 +205,12 @@
             <p style="margin-bottom: 30px; color: #ccc">
               ✉️ enquiries@velocemotors.com
             </p>
-
             <h4 style="color: #d4af37; margin-bottom: 15px">Branches</h4>
             <p style="color: #999; font-size: 14px; margin-bottom: 10px">
-              <strong>Hanoi:</strong> 45 Trang Tien, Hoan Kiem (+84 24 3936
-              1234)
+              <strong>Hanoi:</strong> 45 Trang Tien, Hoan Kiem
             </p>
             <p style="color: #999; font-size: 14px">
-              <strong>Da Nang:</strong> 88 Bach Dang, Hai Chau (+84 236 3888
-              777)
+              <strong>Da Nang:</strong> 88 Bach Dang, Hai Chau
             </p>
           </div>
 
@@ -519,105 +260,8 @@
       </p>
     </footer>
 
-    <script>
-      // 1. DATA ARRAY: Quản lý danh sách xe
-      const fleetData = [
-        {
-          id: "sf90",
-          name: "Ferrari SF90 Stradale",
-          price: "From $507,000",
-          img: "https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=700&q=80",
-          badge: "NEW",
-        },
-        {
-          id: "huracan",
-          name: "Lamborghini Huracán EVO",
-          price: "From $261,274",
-          img: "https://images.unsplash.com/photo-1525609004556-c46c7d6cf023?w=700&q=80",
-          badge: "",
-        },
-        {
-          id: "720s",
-          name: "McLaren 720S Spider",
-          price: "From $374,000",
-          img: "https://images.unsplash.com/photo-1580274455191-1c62238fa333?w=700&q=80",
-          badge: "LIMITED",
-        },
-        {
-          id: "gt3rs",
-          name: "Porsche 911 GT3 RS",
-          price: "From $223,800",
-          img: "https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?w=700&q=80",
-          badge: "",
-        },
-        {
-          id: "chiron",
-          name: "Bugatti Chiron Super Sport",
-          price: "From $3,800,000",
-          img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=80",
-          badge: "ULTRA RARE",
-        },
-      ];
-
-      // 2. RENDER GIAO DIỆN FLEET & XỬ LÝ LỖI ẢNH (Image Fallback)
-      const productList = document.getElementById("product-list");
-      fleetData.forEach((car) => {
-        // onerror: Nếu Github Pages block Unsplash, tự động thay bằng ảnh xám có text
-        const safeImg = `onerror="this.onerror=null;this.src='https://placehold.co/700x400/1a1a1a/d4af37?text=${car.name.replace(/ /g, "+")}'"`;
-
-        productList.innerHTML += `
-                <div class="card">
-                    <img src="${car.img}" alt="${car.name}" ${safeImg}>
-                    <div class="card-body">
-                        ${car.badge ? `<span class="card-badge">${car.badge}</span>` : ""}
-                        <h3 class="card-title">${car.name}</h3>
-                        <p class="card-price">${car.price}</p>
-                        <button class="btn btn-outline" style="width: 100%; padding: 12px;" onclick="window.location.hash='#contact'">Book Test Drive</button>
-                    </div>
-                </div>
-            `;
-      });
-
-      // 3. SPA ROUTING ENGINE (Chuyển trang bằng Hash #)
-      function handleRouting() {
-        // Lấy hash hiện tại trên thanh địa chỉ URL (vd: #about), mặc định là #home
-        let hash = window.location.hash || "#home";
-
-        // Xóa trạng thái active của tất cả các page
-        document.querySelectorAll(".page").forEach((page) => {
-          page.classList.remove("active");
-        });
-
-        // Xóa trạng thái active trên thanh menu
-        document.querySelectorAll("#nav-links a").forEach((link) => {
-          link.classList.remove("active");
-        });
-
-        // Tìm thẻ <div> có id khớp với hash và bật nó lên
-        const targetPage = document.querySelector(hash);
-        if (targetPage) {
-          targetPage.classList.add("active");
-        } else {
-          // Nếu người dùng nhập linh tinh (vd: #xyz), fallback về trang chủ
-          document.getElementById("home").classList.add("active");
-          hash = "#home";
-        }
-
-        // Highlight đúng menu đang đứng
-        const activeMenuLink = document.querySelector(
-          `#nav-links a[href="${hash}"]`,
-        );
-        if (activeMenuLink) activeMenuLink.classList.add("active");
-
-        // Tự động scroll lên đầu trang khi đổi view
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      }
-
-      // Kích hoạt Routing khi người dùng click vào menu hoặc ấn Back/Forward trên trình duyệt
-      window.addEventListener("hashchange", handleRouting);
-
-      // Kích hoạt ngay lập tức khi load xong file HTML
-      window.addEventListener("DOMContentLoaded", handleRouting);
-    </script>
+    <!-- Nhúng file JavaScript theo thứ tự: Data trước, App sau -->
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
   </body>
 </html>
