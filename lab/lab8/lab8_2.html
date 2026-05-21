@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Slider 1 Giây - Lab 08</title>
+    <style>
+      body {
+        font-family: sans-serif;
+      }
+      img {
+        vertical-align: middle;
+        width: 100%;
+      }
+      .slideshow-container {
+        max-width: 1000px;
+        position: relative;
+        margin: auto;
+      }
+      /* Ẩn các slide theo mặc định */
+      .mySlides {
+        display: none;
+      }
+      /* Nút điều hướng Prev & Next */
+      .prev, .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        padding: 16px;
+        margin-top: -22px;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+        transition: 0.6s ease;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+        background-color: red; /* Màu đỏ như cũ */
+      }
+      .next {
+        right: 0;
+        border-radius: 3px 0 0 3px;
+      }
+      .prev:hover, .next:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+      }
+      /* Chữ hiển thị trên ảnh */
+      .text {
+        color: #f2f2f2;
+        font-size: 15px;
+        padding: 8px 12px;
+        position: absolute;
+        bottom: 8px;
+        width: 100%;
+        text-align: center;
+        background-color: rgba(0,0,0,0.5);
+      }
+      /* Cụm dấu chấm (dots) */
+      .dot-container {
+        text-align: center;
+        padding: 20px;
+      }
+      .dot {
+        display: inline-block;
+        border-radius: 100%;
+        width: 20px;
+        height: 20px;
+        background-color: #999;
+        cursor: pointer;
+        margin: 0 4px;
+        transition: background-color 0.6s ease;
+      }
+      .dot:hover, .dot.active {
+        background-color: #333;
+      }
+      /* Hiệu ứng mờ dần (Fading) */
+      .fade {
+        animation-name: fade;
+        animation-duration: 1.5s;
+      }
+      @keyframes fade {
+        from {opacity: .4} 
+        to {opacity: 1}
+      }
+    </style>
+</head>
+<body>
+
+    <div class="slideshow-container">
+      <!-- Slide 1 -->
+      <div class="mySlides fade">
+        <img src="https://picsum.photos/id/1015/1000/400" alt="Nature">
+        <div class="text">Caption Text 1</div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="mySlides fade">
+        <img src="https://picsum.photos/id/1016/1000/400" alt="Mountains">
+        <div class="text">Caption Text 2</div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="mySlides fade">
+        <img src="https://picsum.photos/id/1018/1000/400" alt="Forest">
+        <div class="text">Caption Text 3</div>
+      </div>
+
+      <!-- Mũi tên trái/phải -->
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+
+    <!-- Dấu chấm tròn (Dots) -->
+    <div class="dot-container">
+      <span class="dot" onclick="currentSlide(1)"></span> 
+      <span class="dot" onclick="currentSlide(2)"></span> 
+      <span class="dot" onclick="currentSlide(3)"></span> 
+    </div>
+
+    <script>
+      let slideIndex = 1;
+      let timer; 
+
+      // Khởi tạo ngay khi tải trang
+      showSlides(slideIndex);
+      startAutoSlide(); 
+
+      // ĐÃ CHỈNH: Đổi từ 3000 thành 1000 để chạy mỗi 1 giây
+      function startAutoSlide() {
+          timer = setInterval(function() {
+              plusSlides(1); 
+          }, 1000); // 1000ms = 1 giây
+      }
+
+      function resetTimer() {
+          clearInterval(timer); 
+          startAutoSlide();     
+      }
+
+      function plusSlides(n) {
+          showSlides(slideIndex += n);
+          resetTimer(); 
+      }
+
+      function currentSlide(n) {
+          showSlides(slideIndex = n);
+          resetTimer(); 
+      }
+
+      function showSlides(n) {
+          let i;
+          let slides = document.getElementsByClassName("mySlides");
+          let dots = document.getElementsByClassName("dot");
+          
+          if (n > slides.length) {slideIndex = 1}    
+          if (n < 1) {slideIndex = slides.length}
+          
+          for (i = 0; i < slides.length; i++) {
+              slides[i].style.display = "none";  
+          }
+          for (i = 0; i < dots.length; i++) {
+              dots[i].className = dots[i].className.replace(" active", "");
+          }
+          
+          slides[slideIndex-1].style.display = "block";  
+          dots[slideIndex-1].className += " active";
+      }
+    </script>
+
+</body>
+</html>

@@ -2,25 +2,59 @@
 <html lang="vi">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
     <title>VELOCE Motors - Luxury Supercars (SPA)</title>
-    
+
     <!-- Nhúng file CSS -->
-    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="css/style.css"
+    />
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const toggle = document.getElementById("lab-toggle");
+        const submenu = document.querySelector(".submenu");
+
+        toggle.addEventListener("click", function (e) {
+          e.preventDefault();
+          submenu.classList.toggle("show");
+        });
+      });
+    </script>
   </head>
   <body>
     <nav>
-      <a href="#home" class="logo">VELOCE <span>Motors</span></a>
+      <a
+        href="#home"
+        class="logo"
+        >VELOCE <span>Motors</span></a
+      >
       <ul id="nav-links">
         <li><a href="#home">Home</a></li>
         <li><a href="#about">Our Story</a></li>
         <li><a href="#fleet">The Fleet</a></li>
         <li><a href="#services">Services</a></li>
         <li><a href="#contact">Contact</a></li>
+         <li>
+        <a href="/lab/lab.html">
+          Lab thực hành
+        </a>
+      </li>
+
+    </ul>
+
+  </nav>
+
       </ul>
     </nav>
 
-    <div id="home" class="page">
+    <div
+      id="home"
+      class="page"
+    >
       <div class="hero">
         <h1>Drive the <span>Extraordinary</span></h1>
         <p>
@@ -28,107 +62,251 @@
           supercars — each selected for its soul, performance, and legacy.
         </p>
         <div style="display: flex; gap: 15px">
-          <a href="#fleet" class="btn">Explore Fleet</a>
-          <a href="#about" class="btn btn-outline">Our Story</a>
+          <a
+            href="#fleet"
+            class="btn"
+            >Explore Fleet</a
+          >
+          <a
+            href="#about"
+            class="btn btn-outline"
+            >Our Story</a
+          >
         </div>
       </div>
     </div>
+<nav>
+    <a href="#home" class="logo">VELOCE <span>Motors</span></a>
+    <ul id="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">Our Story</a></li>
+      <li><a href="#fleet">The Fleet</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="/lab/lab.html">Lab thực hành</a></li>
+    </ul>
 
-    <div id="about" class="page">
+    <div class="cart-container" style="position: relative; margin-left: 20px; cursor: pointer;">
+      <div id="cart-icon" style="font-size: 24px; color: #fff;">
+        🛒 <span id="cart-count" style="background: #d4af37; color: #000; font-size: 14px; padding: 2px 7px; border-radius: 50%; font-weight: bold; position: absolute; top: -10px; right: -10px;">0</span>
+      </div>
+      
+      <div id="cart-dropdown" style="display: none; position: absolute; right: 0; top: 40px; background: #111; border: 1px solid #333; width: 320px; padding: 15px; border-radius: 4px; z-index: 999; text-align: left; box-shadow: 0 5px 15px rgba(0,0,0,0.5);">
+        <h3 style="color: #fff; border-bottom: 1px solid #222; padding-bottom: 10px; margin-bottom: 10px; font-size: 18px;">Giỏ hàng của bạn</h3>
+        <div id="cart-items" style="max-height: 200px; overflow-y: auto; margin-bottom: 10px;">
+          <p style="color: #777; font-size: 14px;">Giỏ hàng trống.</p>
+        </div>
+        <div style="border-top: 1px solid #222; padding-top: 10px; display: flex; justify-content: space-between; align-items: center; font-size: 16px; color: #fff;">
+          <span>Tổng cộng:</span>
+          <span id="cart-total" style="color: #d4af37; font-weight: bold;">$0</span>
+        </div>
+        <button class="btn" style="width: 100%; margin-top: 10px; padding: 8px; font-size: 14px;" onclick="alert('Tính năng thanh toán đang được phát triển!')">Thanh toán ngay</button>
+      </div>
+    </div>
+  </nav>
+    <div
+      id="about"
+      class="page"
+    >
       <div class="container">
         <h2 class="section-title">Our <span>Philosophy</span></h2>
         <div style="text-align: center; max-width: 800px; margin: 0 auto">
-          <p style="font-size: 20px; color: #ccc; margin-bottom: 50px; font-weight: 300;">
+          <p
+            style="
+              font-size: 20px;
+              color: #ccc;
+              margin-bottom: 50px;
+              font-weight: 300;
+            "
+          >
             Not just a dealership. A sanctuary for speed. At Veloce Motors, we
             believe that a supercar is more than transportation — it is the
             purest expression of human ingenuity.
           </p>
-          <div class="grid" style="text-align: left">
-            <div class="card" style="background: transparent; border: none">
-              <h3 style="color: #d4af37; margin-bottom: 15px">◈ Authenticity</h3>
-              <p style="color: #999">Every vehicle is fully documented and verified by our experts.</p>
+          <div
+            class="grid"
+            style="text-align: left"
+          >
+            <div
+              class="card"
+              style="background: transparent; border: none"
+            >
+              <h3 style="color: #d4af37; margin-bottom: 15px">
+                ◈ Authenticity
+              </h3>
+              <p style="color: #999">
+                Every vehicle is fully documented and verified by our experts.
+              </p>
             </div>
-            <div class="card" style="background: transparent; border: none">
+            <div
+              class="card"
+              style="background: transparent; border: none"
+            >
               <h3 style="color: #d4af37; margin-bottom: 15px">◈ White-Glove</h3>
-              <p style="color: #999">Dedicated specialists from enquiry to delivery and beyond.</p>
+              <p style="color: #999">
+                Dedicated specialists from enquiry to delivery and beyond.
+              </p>
             </div>
-            <div class="card" style="background: transparent; border: none">
-              <h3 style="color: #d4af37; margin-bottom: 15px">◈ Global Reach</h3>
-              <p style="color: #999">We deliver to over 40 countries with full logistics support.</p>
+            <div
+              class="card"
+              style="background: transparent; border: none"
+            >
+              <h3 style="color: #d4af37; margin-bottom: 15px">
+                ◈ Global Reach
+              </h3>
+              <p style="color: #999">
+                We deliver to over 40 countries with full logistics support.
+              </p>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <div id="fleet" class="page">
+    <div
+      id="fleet"
+      class="page"
+    >
       <div class="container">
         <h2 class="section-title">The Current <span>Collection</span></h2>
-        <div class="grid" id="product-list"></div>
+        <div
+          class="grid"
+          id="product-list"
+        ></div>
       </div>
     </div>
 
-    <div id="services" class="page">
+    <div
+      id="services"
+      class="page"
+    >
       <div class="container">
         <h2 class="section-title">Exceptional <span>Services</span></h2>
         <div class="grid">
           <div class="card">
             <div class="card-body">
               <h3 class="card-title">🏎️ Vehicle Acquisition</h3>
-              <p style="color: #999">We source the exact specification you desire from our global network of partners, auction houses, and collectors.</p>
+              <p style="color: #999">
+                We source the exact specification you desire from our global
+                network of partners, auction houses, and collectors.
+              </p>
             </div>
           </div>
           <div class="card">
             <div class="card-body">
               <h3 class="card-title">🔑 Private Test Drives</h3>
-              <p style="color: #999">Experience any vehicle from our fleet on a private circuit or curated road route, with full safety support.</p>
+              <p style="color: #999">
+                Experience any vehicle from our fleet on a private circuit or
+                curated road route, with full safety support.
+              </p>
             </div>
           </div>
           <div class="card">
             <div class="card-body">
               <h3 class="card-title">⚙️ Concierge Maintenance</h3>
-              <p style="color: #999">Factory-trained technicians, genuine parts, and doorstep collection keep your investment in flawless condition.</p>
+              <p style="color: #999">
+                Factory-trained technicians, genuine parts, and doorstep
+                collection keep your investment in flawless condition.
+              </p>
             </div>
           </div>
           <div class="card">
             <div class="card-body">
               <h3 class="card-title">💎 Bespoke Customization</h3>
-              <p style="color: #999">From carbon-fibre interiors to bespoke paint programmes, we create vehicles as individual as their owners.</p>
+              <p style="color: #999">
+                From carbon-fibre interiors to bespoke paint programmes, we
+                create vehicles as individual as their owners.
+              </p>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <div id="contact" class="page">
+    <div
+      id="contact"
+      class="page"
+    >
       <div class="container">
         <h2 class="section-title">Begin Your <span>Journey</span></h2>
-        <div class="grid" style="align-items: start">
-          <div style="background: #111; padding: 40px; border: 1px solid #222; border-radius: 4px;">
-            <h3 style="color: #fff; margin-bottom: 25px; font-size: 24px">Ho Chi Minh City HQ</h3>
-            <p style="margin-bottom: 15px; color: #ccc">📍 120 Nguyen Hue Blvd, District 1<br />Ho Chi Minh City, Vietnam</p>
+        <div
+          class="grid"
+          style="align-items: start"
+        >
+          <div
+            style="
+              background: #111;
+              padding: 40px;
+              border: 1px solid #222;
+              border-radius: 4px;
+            "
+          >
+            <h3 style="color: #fff; margin-bottom: 25px; font-size: 24px">
+              Ho Chi Minh City HQ
+            </h3>
+            <p style="margin-bottom: 15px; color: #ccc">
+              📍 120 Nguyen Hue Blvd, District 1<br />Ho Chi Minh City, Vietnam
+            </p>
             <p style="margin-bottom: 15px; color: #ccc">📞 +84 28 3823 9999</p>
-            <p style="margin-bottom: 30px; color: #ccc">✉️ enquiries@velocemotors.com</p>
+            <p style="margin-bottom: 30px; color: #ccc">
+              ✉️ enquiries@velocemotors.com
+            </p>
 
             <h4 style="color: #d4af37; margin-bottom: 15px">Branches</h4>
-            <p style="color: #999; font-size: 14px; margin-bottom: 10px"><strong>Hanoi:</strong> 45 Trang Tien, Hoan Kiem (+84 24 3936 1234)</p>
-            <p style="color: #999; font-size: 14px"><strong>Da Nang:</strong> 88 Bach Dang, Hai Chau (+84 236 3888 777)</p>
+            <p style="color: #999; font-size: 14px; margin-bottom: 10px">
+              <strong>Hanoi:</strong> 45 Trang Tien, Hoan Kiem (+84 24 3936
+              1234)
+            </p>
+            <p style="color: #999; font-size: 14px">
+              <strong>Da Nang:</strong> 88 Bach Dang, Hai Chau (+84 236 3888
+              777)
+            </p>
           </div>
 
-          <form onsubmit="event.preventDefault(); alert('Thank you! Your request has been sent.');">
-            <h3 style="color: #fff; margin-bottom: 10px">Request Consultation</h3>
-            <input type="text" placeholder="Full Name *" required />
-            <input type="email" placeholder="Email Address *" required />
-            <input type="tel" placeholder="Phone Number" />
-            <textarea rows="4" placeholder="Additional Requirements" required></textarea>
-            <button type="submit" class="btn" style="width: 100%">Submit Request →</button>
+          <form
+            onsubmit="
+              event.preventDefault();
+              alert('Thank you! Your request has been sent.');
+            "
+          >
+            <h3 style="color: #fff; margin-bottom: 10px">
+              Request Consultation
+            </h3>
+            <input
+              type="text"
+              placeholder="Full Name *"
+              required
+            />
+            <input
+              type="email"
+              placeholder="Email Address *"
+              required
+            />
+            <input
+              type="tel"
+              placeholder="Phone Number"
+            />
+            <textarea
+              rows="4"
+              placeholder="Additional Requirements"
+              required
+            ></textarea>
+            <button
+              type="submit"
+              class="btn"
+              style="width: 100%"
+            >
+              Submit Request →
+            </button>
           </form>
         </div>
       </div>
     </div>
 
     <footer>
-      <p>&copy; 2024 Veloce Motors. All Rights Reserved. Crafted with passion.</p>
+      <p>
+        &copy; 2024 Veloce Motors. All Rights Reserved. Crafted with passion.
+      </p>
     </footer>
 
     <!-- Nhúng file JS (data.js phải nằm trước app.js vì app.js cần dùng dữ liệu từ data.js) -->

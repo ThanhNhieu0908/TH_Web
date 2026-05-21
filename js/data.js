@@ -36,3 +36,28 @@ const fleetData = [
     badge: "ULTRA RARE",
   },
 ];
+
+// Ví dụ cấu trúc file js/data.js
+const supercars = [
+  {
+    id: 1,
+    name: "Ferrari SF90 Stradale",
+    price: 510000,
+    image: "https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=500", // Thay bằng link ảnh thật của bạn
+    desc: "Mẫu plug-in hybrid đầu tiên của Ferrari với sức mạnh 1000 mã lực.",
+  },
+  {
+    id: 2,
+    name: "Lamborghini Revuelto",
+    price: 600000,
+    image: "https://images.unsplash.com/photo-1621135802920-133df287f89c?w=500",
+    desc: "Siêu xe động cơ V12 Hybrid mang tính cách mạng từ nhà bò tót.",
+  },
+  {
+    id: 3,
+    name: "Porsche 911 GT3 RS",
+    price: 275000,
+    image: "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?w=500",
+    desc: "Cỗ máy đua đường phố thuần chất nhất với tính khí động học tối ưu.",
+  },
+];

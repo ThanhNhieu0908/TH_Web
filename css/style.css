@@ -259,3 +259,40 @@ footer p {
   color: #666;
   font-size: 14px;
 }
+
+.dropdown {
+  position: relative;
+}
+
+.submenu {
+  display: none;
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background: #111;
+  min-width: 220px;
+  border: 1px solid #333;
+  border-radius: 4px;
+  padding: 10px 0;
+  z-index: 999;
+}
+
+.submenu li {
+  list-style: none;
+}
+
+.submenu li a {
+  display: block;
+  padding: 15px 20px;
+  color: #ccc;
+  text-decoration: none;
+}
+
+.submenu li a:hover {
+  background: #222;
+  color: #d4af37;
+}
+
+.submenu.show {
+  display: block;
+}
